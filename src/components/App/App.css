@@ -1,0 +1,23 @@
+.App {
+  content: "";
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-image: url("./img/phone_img.png");
+}
+
+.title_h1{
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 1px #000000;
+  font-weight: 300;
+}
