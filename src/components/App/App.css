@@ -1,25 +1,21 @@
 .App {
-  content: "";
-  position: absolute;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
   background-image: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.5) 0%,
     rgba(0, 0, 0, 5e-5) 49.88%,
     rgba(0, 0, 0, 0.5) 100%
   ), url("./img/phone_img.png");
-  
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+  padding-top: 1px;
+  width: 100%;
+  min-height: 100vh;
 }
 
-.title_h1 {
+.App__title_h1 {
   font-size: 36px;
   line-height: 44px;
   text-align: center;
@@ -29,3 +25,12 @@
   font-family: "Exo 2", sans-serif;
   margin-bottom: 24px;
 }
+
+.App__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+
+}
+

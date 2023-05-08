@@ -16,10 +16,32 @@
   position: relative;
   width: 328px;
   height: 488px;
-  background-color: #2ea8e6;
+  background-color: #1698D9;
   border-radius: 14px;
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 10%);
 }
+
+
+.card__border_default {
+  background-color: #1698D9;
+}
+
+.card__border_blue {
+  background-color: #2ea8e6;
+}
+
+.card__border_purple {
+  background-color: #D91667;
+}
+
+.card__border_pink {
+  background-color: #E52E7A;
+}
+
+.card__border_grey {
+  background-color: #B3B3B3;
+}
+
 
 .card__container {
   position: absolute;
@@ -45,6 +67,14 @@
 }
 
 .card__text {
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 56px;
+  margin: 0;
+  margin-left: 48px;
+}
+
+.card__title {
   font-weight: 700;
   font-size: 48px;
   line-height: 56px;
@@ -52,25 +82,29 @@
   margin-left: 48px;
 }
 
-.card__text_small {
+.card__title_small {
   font-size: 24px;
   margin-top: 0px;
+  margin-bottom: 15px;
   line-height: 28px;
 }
 
 .grey {
   color: #666666;
-  margin-top: 15px;
-  margin-bottom: 25px;
   font-size: 14px;
   line-height: 16px;
+  max-width: 150px;
+}
+
+.grey:nth-child(odd){
+  margin-bottom: 26px;
 }
 
 .card__circle {
   position: absolute;
   width: 80px;
   height: 80px;
-  background-color: #2ea8e6;
+  background-color: #1698D9;
   z-index: 10;
   bottom: 16px;
   right: 16px;
@@ -106,6 +140,16 @@
 }
 
 .card__text_after a {
-    color: #22A7E9;
+    color: #1698D9;
     text-decoration: underline dotted ;
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: 100%;
+  }
 }
