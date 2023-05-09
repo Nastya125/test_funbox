@@ -22,23 +22,19 @@
 }
 
 
-.card__border_default {
-  background-color: #1698D9;
-}
-
-.card__border_blue {
+.card__border.hover {
   background-color: #2ea8e6;
 }
 
-.card__border_purple {
+.card__border.selected {
   background-color: #D91667;
 }
 
-.card__border_pink {
+.card__border.selected-hover {
   background-color: #E52E7A;
 }
 
-.card__border_grey {
+.card__border.disabled {
   background-color: #B3B3B3;
 }
 
@@ -56,6 +52,7 @@
   justify-content: flex-start;
   flex-direction: column;
   position: relative;
+  cursor: pointer;
 }
 
 .card__text_grey {
@@ -116,6 +113,22 @@
   flex-direction: column;
 }
 
+.card__circle.hover {
+  background-color: #2ea8e6;
+}
+
+.card__circle.selected {
+  background-color: #D91667;
+}
+
+.card__circle.selected-hover {
+  background-color: #E52E7A;
+}
+
+.card__circle.disabled {
+  background-color: #B3B3B3;
+}
+
 .card__weight {
   color: #ffffff;
   font-weight: 400;
@@ -139,9 +152,13 @@
   line-height: 15px;
 }
 
-.card__text_after a {
+.card__text_after_a {
     color: #1698D9;
     text-decoration: underline dotted ;
+}
+
+.card__text_after_a.hover{
+  color: #2ea8e6;
 }
 
 @media (min-width: 768px) {

@@ -1,10 +1,57 @@
 import "./card.css";
 import cat from "./img/cat.png";
+import React, { useState } from "react";
 
-function Card(props) {
+const Card = (props) => {
+  const initialText = () => {
+    return (
+      <p className="card__text_after">
+        Чего сидишь? Порадуй котэ,{" "}
+        <a className={`card__text_after_a ${hover ? "hover" : ""}`} href="/">
+          купи.
+        </a>
+      </p>
+    );
+  };
+
+  const newText = () => {
+    return <p className="card__text_after">{props.text}</p>;
+  };
+
+  const [selected, setSelected] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+
+  const [text, setText] = useState(initialText);
+
+  const handleHover = () => {
+    setHover(!hover);
+  };
+
+  const handleClick = () => {
+    if (!disabled) {
+      setSelected(!selected);
+      
+    }
+    if(!selected){
+      setText(newText);
+    } else { 
+      setText(initialText);
+    }
+  };
+
   return (
     <div className="card">
-      <div className="card__border">
+      <div
+        className={`card__border ${selected ? "selected" : ""} ${
+          hover && !selected ? "hover" : ""
+        } ${selected && hover ? "selected-hover" : ""} ${
+          disabled ? "disabled" : ""
+        }`}
+        onMouseEnter={handleHover}
+        onMouseLeave={handleHover}
+        onClick={handleClick}
+      >
         <div className="card__container">
           <p className="card__text_grey">Сказочное заморское яство</p>
 
@@ -15,17 +62,21 @@ function Card(props) {
           <p className="card__text grey">{props.gift}</p>
 
           <img src={cat} alt="cat" />
-          <div className="card__circle">
+          <div
+            className={`card__circle ${selected ? "selected" : ""} ${
+              hover && !selected ? "hover" : ""
+            } ${selected && hover ? "selected-hover" : ""} ${
+              disabled ? "disabled" : ""
+            }`}
+          >
             <p className="card__weight">{props.weight}</p>
             <p className="card__weight_small">кг</p>
           </div>
         </div>
       </div>
-      <p className="card__text_after">
-        Чего сидишь? Порадуй котэ, <a href="/">купи.</a>
-      </p>
+      <div>{text}</div>
     </div>
   );
-}
+};
 
 export default Card;
