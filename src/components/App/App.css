@@ -28,9 +28,10 @@
 
 .App__container {
   display: flex;
-  justify-content: center;
+  justify-content:space-around;
   align-items: center;
   gap: 80px;
-
+  margin: 0 70px;
+  flex-wrap: wrap;
 }
 

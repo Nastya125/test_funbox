@@ -9,6 +9,7 @@
   align-items: center;
   font-family: "Trebuchet MS";
   flex-direction: column;
+
 }
 
 .card__border {
@@ -19,6 +20,7 @@
   background-color: #1698D9;
   border-radius: 14px;
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 10%);
+
 }
 
 
@@ -35,7 +37,8 @@
 }
 
 .card__border.disabled {
-  background-color: #B3B3B3;
+
+  background: #B3B3B3;
 }
 
 
@@ -53,6 +56,13 @@
   flex-direction: column;
   position: relative;
   cursor: pointer;
+
+}
+
+.card__container.disabled {
+  pointer-events: none;
+  opacity: 0.3;
+  background: #F2F2F2;
 }
 
 .card__text_grey {
@@ -161,9 +171,10 @@
   color: #2ea8e6;
 }
 
-@media (min-width: 768px) {
-
+.card__text_after_disabled {
+  color: #FFFF66;
 }
+
 
 @media (max-width: 767px) {
   .card {

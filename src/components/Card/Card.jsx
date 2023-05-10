@@ -3,15 +3,31 @@ import cat from "./img/cat.png";
 import React, { useState } from "react";
 
 const Card = (props) => {
-  const initialText = () => {
+  const disabledText = () => {
     return (
-      <p className="card__text_after">
-        Чего сидишь? Порадуй котэ,{" "}
-        <a className={`card__text_after_a ${hover ? "hover" : ""}`} href="/">
-          купи.
-        </a>
+      <p className="card__text_after card__text_after.disabled">
+        {props.disabledText}
       </p>
     );
+  };
+
+  const initialText = () => {
+    if (!props.disabled) {
+      return (
+        <p className="card__text_after">
+          Чего сидишь? Порадуй котэ,{" "}
+          <a className={`card__text_after_a ${hover ? "hover" : ""}`} href="/">
+            купи.
+          </a>
+        </p>
+      );
+    } else {
+      return (
+        <p className="card__text_after card__text_after_disabled">
+          {props.disabledText}
+        </p>
+      );
+    }
   };
 
   const newText = () => {
@@ -20,23 +36,32 @@ const Card = (props) => {
 
   const [selected, setSelected] = useState(false);
   const [hover, setHover] = useState(false);
-  const [disabled, setDisabled] = useState(false);
-
+  const [disabled] = useState(false);
   const [text, setText] = useState(initialText);
 
+  const disableState = () => {
+    if (props.disabled) {
+      setText(!disabledText);
+    }
+  };
+
   const handleHover = () => {
-    setHover(!hover);
+    if (!props.disabled) {
+      setHover(!hover);
+    }
   };
 
   const handleClick = () => {
-    if (!disabled) {
+    if (!props.disabled) {
       setSelected(!selected);
-      
     }
-    if(!selected){
+    if (!selected && !props.disabled) {
       setText(newText);
-    } else { 
+    } else {
       setText(initialText);
+    }
+    if (props.disabled) {
+      setText(disabledText);
     }
   };
 
@@ -46,13 +71,13 @@ const Card = (props) => {
         className={`card__border ${selected ? "selected" : ""} ${
           hover && !selected ? "hover" : ""
         } ${selected && hover ? "selected-hover" : ""} ${
-          disabled ? "disabled" : ""
-        }`}
+          props.disabled ? "disabled" : ""
+        } `}
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}
         onClick={handleClick}
       >
-        <div className="card__container">
+        <div className={`card__container ${props.disabled ? "disabled" : ""}`}>
           <p className="card__text_grey">Сказочное заморское яство</p>
 
           <h2 className="card__title">Нямушка</h2>
@@ -66,7 +91,7 @@ const Card = (props) => {
             className={`card__circle ${selected ? "selected" : ""} ${
               hover && !selected ? "hover" : ""
             } ${selected && hover ? "selected-hover" : ""} ${
-              disabled ? "disabled" : ""
+              props.disabled ? "disabled" : ""
             }`}
           >
             <p className="card__weight">{props.weight}</p>
