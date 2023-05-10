@@ -1,6 +1,5 @@
 import './App.css';
 import Card from "../Card/Card"
-import { useState } from "react";
 
 function App() {
 

@@ -36,14 +36,7 @@ const Card = (props) => {
 
   const [selected, setSelected] = useState(false);
   const [hover, setHover] = useState(false);
-  const [disabled] = useState(false);
   const [text, setText] = useState(initialText);
-
-  const disableState = () => {
-    if (props.disabled) {
-      setText(!disabledText);
-    }
-  };
 
   const handleHover = () => {
     if (!props.disabled) {
