@@ -28,10 +28,18 @@
 
 .App__container {
   display: flex;
-  justify-content:space-around;
+  justify-content: center;
   align-items: center;
   gap: 80px;
   margin: 0 70px;
-  flex-wrap: wrap;
+
 }
+
+@media (max-width: 1024px) {
+  .App__container {
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+}
+
 
