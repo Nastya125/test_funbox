@@ -38,7 +38,7 @@ const Card = (props) => {
 
   const seleсtTopText = () => {
     return (
-      <p className="card__text_grey">Котэ не одобряет?</p>
+      <p className="card__text_purp">Котэ не одобряет?</p>
     )
   }
 
