@@ -30,6 +30,19 @@ const Card = (props) => {
     }
   };
 
+  const defaultTopText = () => {
+    return (
+      <p className="card__text_grey">{props.toptext}</p>
+    )
+  }
+
+  const seleсtTopText = () => {
+    return (
+      <p className="card__text_grey">Котэ не одобряет?</p>
+    )
+  }
+
+
   const newText = () => {
     return <p className="card__text_after">{props.text}</p>;
   };
@@ -37,10 +50,16 @@ const Card = (props) => {
   const [selected, setSelected] = useState(false);
   const [hover, setHover] = useState(false);
   const [text, setText] = useState(initialText);
+  const [toptext, setTopText] = useState(defaultTopText);
 
   const handleHover = () => {
     if (!props.disabled) {
       setHover(!hover);
+    }
+    if (hover && selected) {
+      setTopText(seleсtTopText) 
+    } else {
+      setTopText(defaultTopText);
     }
   };
 
@@ -48,14 +67,15 @@ const Card = (props) => {
     if (!props.disabled) {
       setSelected(!selected);
     }
-    if (!selected && !props.disabled) {
+    if (!selected && !props.disabled ) {
       setText(newText);
     } else {
       setText(initialText);
     }
+
     if (props.disabled) {
       setText(disabledText);
-    }
+    } 
   };
 
   return (
@@ -71,7 +91,7 @@ const Card = (props) => {
         onClick={handleClick}
       >
         <div className={`card__container ${props.disabled ? "disabled" : ""}`}>
-          <p className="card__text_grey">Сказочное заморское яство</p>
+          {toptext}
 
           <h2 className="card__title">Нямушка</h2>
           <p className="card__title card__title_small">с фуа-гра</p>
